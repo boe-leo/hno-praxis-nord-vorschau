@@ -1,0 +1,120 @@
+/* HNO Praxis Nord: local, embedded theme. Shared widget behavior stays upstream. */
+.widget-embed .private-widget {
+  --widget-ink: #17384b;
+  --widget-text: #3e5764;
+  --widget-muted: #536b78;
+  --widget-accent: #205f80;
+  --widget-accent-strong: #17384b;
+  --widget-line: #cbd8de;
+  --widget-divider: #d6e1e6;
+  --widget-paper: #f2f6f8;
+  --widget-soft: #e6eff3;
+  --widget-selection: #cee1eb;
+  --widget-control-line: #728995;
+  --widget-focus: #287fab;
+  font-family: Manrope, Arial, sans-serif;
+  caret-color: var(--widget-accent);
+}
+
+.widget-embed .widget-entry-book span {
+  background: var(--widget-ink);
+  color: #fff;
+}
+.widget-embed .widget-entry-book:hover span {
+  background: var(--widget-accent);
+}
+
+.widget-embed .private-widget .private-widget-book,
+.widget-embed .private-widget .widget-service-book,
+.widget-embed .private-widget .widget-service-filter,
+.widget-embed .private-widget .widget-contact-channels button,
+.widget-embed .private-widget .widget-chat-form {
+  border-color: var(--widget-control-line);
+}
+.widget-embed .booking-surface .form-control,
+.widget-embed .booking-surface .date-button:not([aria-pressed=true]),
+.widget-embed .booking-surface .slot:not([aria-pressed=true]) {
+  border-color: var(--widget-control-line);
+}
+.widget-embed .booking-surface .date-button:hover,
+.widget-embed .booking-surface .slot:hover {
+  border-color: var(--widget-accent);
+}
+.widget-embed .private-widget .widget-service-filter::placeholder,
+.widget-embed .private-widget .widget-chat-form textarea::placeholder,
+.widget-embed .booking-surface .form-control::placeholder {
+  color: var(--widget-muted);
+  opacity: 1;
+}
+.widget-embed .private-widget :focus-visible {
+  outline-color: var(--widget-focus);
+}
+.widget-embed .private-widget .demo-booking-notice {
+  /* The shared demo runtime injects these two colors as inline styles. */
+  color: var(--widget-muted) !important;
+  border-bottom-color: var(--widget-divider) !important;
+}
+
+.widget-embed .widget-window-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 44px;
+}
+.widget-embed .widget-private-details > .widget-window-controls {
+  padding: 0 12px;
+}
+.widget-embed .private-widget:not(.booking-choices) .widget-private-details > .widget-window-controls,
+.widget-embed .private-widget:not(.selfpay-selection) .widget-window-controls > .widget-overview-back {
+  display: none;
+}
+.widget-embed .widget-window-controls > .widget-overview-back {
+  margin: 0;
+}
+.widget-embed .private-widget.booking-choices .widget-practice-summary {
+  padding-top: 4px;
+}
+.widget-embed .private-widget .widget-minimize {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  margin-left: auto;
+  padding: 8px 4px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--widget-text);
+  font: 400 12px/1.4 Manrope, Arial, sans-serif;
+  cursor: pointer;
+}
+.widget-embed .private-widget .widget-minimize:hover {
+  background: var(--widget-soft);
+  color: var(--widget-ink);
+}
+.widget-embed .private-widget .widget-minimize:focus-visible {
+  outline: 2px solid var(--widget-focus);
+  outline-offset: -2px;
+}
+.widget-embed .widget-minimize svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+/* Information is a text action; only booking keeps the button surface. */
+.widget-embed .private-widget .widget-service-actions button:not(.widget-service-book) {
+  background: transparent;
+  border-color: transparent;
+  border-radius: 0;
+}
+.widget-embed .private-widget .widget-service-actions button:not(.widget-service-book):hover,
+.widget-embed .private-widget .widget-service-actions button:not(.widget-service-book)[aria-expanded="true"] {
+  color: var(--widget-accent);
+  text-decoration-thickness: 2px;
+}

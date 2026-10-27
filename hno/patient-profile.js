@@ -1,0 +1,15 @@
+import {initAccountAccess} from './account-access.js';
+import {esc} from './api.js';
+export function profileFields(p={},includeAddress=false){return `<div class="form-grid"><label class="form-label">Vorname<input class="form-control" name="first_name" autocomplete="given-name" value="${esc(p.first_name)}" maxlength="60" required></label><label class="form-label">Nachname<input class="form-control" name="last_name" autocomplete="family-name" value="${esc(p.last_name)}" maxlength="60" required></label><label class="form-label">Geschlecht<select class="form-control" name="gender" required><option value="">Bitte wählen</option>${[['female','Weiblich'],['male','Männlich'],['other','Divers'],['unknown','Keine Angabe']].map(([v,t])=>`<option value="${v}" ${p.gender===v?'selected':''}>${t}</option>`).join('')}</select></label><label class="form-label">Titel (optional)<input class="form-control" name="title" autocomplete="honorific-prefix" placeholder="z. B. Dr." value="${esc(p.title)}" maxlength="40"></label><label class="form-label">Geburtsdatum<input class="form-control" name="birthdate" type="date" autocomplete="bday" value="${esc(p.birthdate)}" min="1900-01-01" max="${new Date().toISOString().slice(0,10)}" required></label><label class="form-label">E-Mail (optional)<input class="form-control" name="email" type="email" autocomplete="email" value="${esc(p.email)}" maxlength="180"></label></div>${includeAddress?addressFields(p.address):''}`;}
+function addressFields(address={}){
+ const p=address||{};
+ return `<fieldset class="account-address"><legend>Adresse</legend><div class="form-grid"><label class="form-label">Straße und Hausnummer<input class="form-control" name="address_street" autocomplete="address-line1" maxlength="120" value="${esc(p.street)}"></label><label class="form-label">Adresszusatz<input class="form-control" name="address_extra" autocomplete="address-line2" maxlength="120" value="${esc(p.extra)}"></label><label class="form-label">Postleitzahl<input class="form-control" name="address_postal_code" autocomplete="postal-code" maxlength="16" value="${esc(p.postal_code)}"></label><label class="form-label">Ort<input class="form-control" name="address_city" autocomplete="address-level2" maxlength="80" value="${esc(p.city)}"></label><label class="form-label">Ländercode<input class="form-control" name="address_country" autocomplete="country" maxlength="2" pattern="[A-Za-z]{2}" placeholder="DE" value="${esc(p.country||'DE')}"><span class="small">Zwei Buchstaben, z. B. DE für Deutschland.</span></label></div></fieldset>`;
+}
+export function readProfile(form){
+ const values=Object.fromEntries(['first_name','last_name','gender','title','birthdate','email'].map(k=>[k,form.elements.namedItem(k).value]));
+ if(form.elements.namedItem('address_street'))values.address=Object.fromEntries(['street','extra','postal_code','city','country'].map(k=>[k,k==='country'?form.elements.namedItem('address_'+k).value.trim().toUpperCase():form.elements.namedItem('address_'+k).value]));
+ return values;
+}
+export function showSession(){
+ return initAccountAccess(document.querySelector('[data-site-navigation]'));
+}

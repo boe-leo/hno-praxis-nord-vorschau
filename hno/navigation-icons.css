@@ -1,0 +1,23 @@
+/* Canonical controls from the supplied reference. Keep the circle inside the
+   person symbol; never add a second outline around the button. The narrowly
+   scoped !important declarations override historic per-page icon variants. */
+button.medone-navigation-control{width:48px!important;height:48px!important;min-width:48px!important;padding:8px!important;display:inline-grid!important;place-items:center!important;flex:none!important;border:0!important;border-radius:50%!important;background:#fffef9!important;color:#344149!important;box-shadow:none!important;transition:background .18s ease!important}
+button.medone-navigation-control:hover,button.medone-navigation-control[aria-expanded=true]{background:#f5f5ef!important;color:#344149!important}
+button.medone-navigation-control:focus-visible{outline:2px solid #617f6b!important;outline-offset:3px!important}
+button.medone-navigation-control>svg.medone-navigation-icon{width:32px!important;height:32px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.6!important;stroke-linecap:round;stroke-linejoin:round}
+button.medone-navigation-control>svg.account-outline{stroke-width:1.3!important}
+.medone-navigation-icon .navigation-bars,.medone-navigation-icon .navigation-cross{transform-origin:center;transition:opacity .16s,transform .16s}
+.medone-navigation-icon .navigation-cross{opacity:0;transform:rotate(-30deg)}
+[aria-expanded=true]>.medone-navigation-icon .navigation-bars{opacity:0;transform:rotate(30deg)}
+[aria-expanded=true]>.medone-navigation-icon .navigation-cross{opacity:1;transform:rotate(0)}
+body .site-controls{gap:10px!important;align-items:center}
+#workspace-tools{gap:10px;align-items:flex-start}.account-tool{width:48px;flex:none}
+#workspace-login-caption{position:absolute;top:48px;left:50%;transform:translateX(-50%);width:210px;max-width:none;text-align:center;margin-top:7px}
+#workspace-login-caption strong{font-size:11px}
+#workspace-tools .workspace-icon{margin:0}
+@media(max-width:650px){#workspace-login-caption{width:166px;font-size:9px}#workspace-login-caption strong{font-size:10px}.workspace-topbar{min-height:118px}.workspace-tools{margin-right:0}}
+@media(prefers-reduced-motion:reduce){.medone-navigation-icon .navigation-bars,.medone-navigation-icon .navigation-cross{transition:none}}
+
+.role-menu-actions{display:flex;flex-direction:column;gap:4px}.role-menu-actions button{text-align:left;border:0;background:transparent;padding:12px 0;font-size:15px}.role-menu-actions button:hover{background:#f5f5ef}#role-identity{font-size:14px;line-height:1.6;margin:12px 0 18px}
+
+footer:has(>.hno-footer-powered){justify-content:flex-start}footer>.hno-footer-powered{margin-left:0;margin-right:auto}

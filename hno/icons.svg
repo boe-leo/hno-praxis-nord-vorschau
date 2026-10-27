@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg"><symbol id="wind" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M5 8h8.5a2.5 2.5 0 1 0 -2.34 -3.24" />
+  <path d="M3 12h15.5a2.5 2.5 0 1 1 -2.34 3.24" />
+  <path d="M4 16h5.5a2.5 2.5 0 1 1 -2.34 3.24" />
+</symbol><symbol id="menu-2" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 6l16 0" />
+  <path d="M4 12l16 0" />
+  <path d="M4 18l16 0" />
+</symbol><symbol id="chevron-down" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M6 9l6 6l6 -6" />
+</symbol><symbol id="x" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M18 6l-12 12" />
+  <path d="M6 6l12 12" />
+</symbol><symbol id="arrow-right" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M5 12l14 0" />
+  <path d="M13 18l6 -6" />
+  <path d="M13 6l6 6" />
+</symbol><symbol id="plus" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M12 5l0 14" />
+  <path d="M5 12l14 0" />
+</symbol><symbol id="check" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M5 12l5 5l10 -10" />
+</symbol><symbol id="arrow-up-right" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M17 7l-10 10" />
+  <path d="M8 7l9 0l0 9" />
+</symbol><symbol id="building-hospital" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M3 21l18 0" />
+  <path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16" />
+  <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4" />
+  <path d="M10 9l4 0" />
+  <path d="M12 7l0 4" />
+</symbol><symbol id="flower" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+  <path d="M12 2a3 3 0 0 1 3 3c0 .562 -.259 1.442 -.776 2.64l-.724 1.36l1.76 -1.893c.499 -.6 .922 -1 1.27 -1.205a2.968 2.968 0 0 1 4.07 1.099a3.011 3.011 0 0 1 -1.09 4.098c-.374 .217 -.99 .396 -1.846 .535l-2.664 .366l2.4 .326c1 .145 1.698 .337 2.11 .576a3.011 3.011 0 0 1 1.09 4.098a2.968 2.968 0 0 1 -4.07 1.098c-.348 -.202 -.771 -.604 -1.27 -1.205l-1.76 -1.893l.724 1.36c.516 1.199 .776 2.079 .776 2.64a3 3 0 0 1 -6 0c0 -.562 .259 -1.442 .776 -2.64l.724 -1.36l-1.76 1.893c-.499 .601 -.922 1 -1.27 1.205a2.968 2.968 0 0 1 -4.07 -1.098a3.011 3.011 0 0 1 1.09 -4.098c.374 -.218 .99 -.396 1.846 -.536l2.664 -.366l-2.4 -.325c-1 -.145 -1.698 -.337 -2.11 -.576a3.011 3.011 0 0 1 -1.09 -4.099a2.968 2.968 0 0 1 4.07 -1.099c.348 .203 .771 .604 1.27 1.205l1.76 1.894c-1 -2.292 -1.5 -3.625 -1.5 -4a3 3 0 0 1 3 -3z" />
+</symbol><symbol id="map-pin" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+  <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+</symbol><symbol id="calendar" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" />
+  <path d="M16 3v4" />
+  <path d="M8 3v4" />
+  <path d="M4 11h16" />
+  <path d="M11 15h1" />
+  <path d="M12 15v3" />
+</symbol><symbol id="arrow-left" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M5 12l14 0" />
+  <path d="M5 12l6 6" />
+  <path d="M5 12l6 -6" />
+</symbol><symbol id="ear" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M6 10a7 7 0 1 1 13 3.6a10 10 0 0 1 -2 2a8 8 0 0 0 -2 3a4.5 4.5 0 0 1 -6.8 1.4" />
+  <path d="M10 10a3 3 0 1 1 5 2.2" />
+</symbol><symbol id="shield-check" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none" />
+  <path d="M11.46 20.846a12 12 0 0 1 -7.96 -14.846a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12 12 0 0 1 -.09 7.06" />
+  <path d="M15 19l2 2l4 -4" />
+</symbol></svg>
