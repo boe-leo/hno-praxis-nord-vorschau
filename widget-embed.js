@@ -5,10 +5,7 @@
   const url = new URL('/hno-praxis-nord-vorschau/widget/', location.origin);
   fallback.href = url.href;
   url.searchParams.set('embed', '1');
-  const stateKey = 'praxis-nord:widget-state';
-  let initialState = host.dataset.widgetInitial || 'expanded';
-  try { initialState = sessionStorage.getItem(stateKey) || initialState; } catch {}
-  url.searchParams.set('initial', initialState);
+  url.searchParams.set('initial', host.dataset.widgetInitial || 'compact');
   const frame = document.createElement('iframe');
   frame.title = 'Terminbuchung für Privatversicherte und Selbstzahlende';
   frame.className = 'practice-widget-frame';
@@ -73,7 +70,6 @@
     // choices/contact use 310px+, booking 520px. Prefer explicit state when supplied.
     const compact = event.data.expanded === false ||
       (event.data.expanded === undefined && !activeBooking && width === 280);
-    try { sessionStorage.setItem(stateKey, compact ? 'compact' : 'expanded'); } catch {}
     if (!compact) expandedSinceOpen = true;
     ready = true;
     fallback.hidden = true;
