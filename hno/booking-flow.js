@@ -59,7 +59,7 @@ function focusNotice(element){element.tabIndex=-1;element.focus({preventScroll:t
 function priceSummary(){return state.selfpayService?.price?`<span class="booking-price">${esc(state.selfpayService.price)}</span>`:'';}
 function emptySlots(retry){
  title(2,'Zurzeit keine Termine',embedded?'Privatpraxis Nord':practice.name);
- renderBody(`<div class="booking-empty"><h3>Aktuell ist kein Online-Termin frei.</h3><p>Prüfe die Verfügbarkeit später erneut oder nutze die Kontaktmöglichkeiten der Praxis.</p><button class="button full" id="retry">Erneut prüfen</button>${options.onContact?'<button class="text-button" id="contact-practice">Kontakt zur Praxis · Demo</button>':''}<button class="dialog-back" id="back">Zurück zum Anliegen</button></div>`);
+ renderBody(`<div class="booking-empty"><h3>Aktuell ist kein Online-Termin frei.</h3><p>Prüfe die Verfügbarkeit später erneut oder nutze die Kontaktmöglichkeiten der Praxis.</p><button class="button full" id="retry">Erneut prüfen</button>${options.onContact?'<button class="text-button" id="contact-practice">Kontakt zur Praxis</button>':''}<button class="dialog-back" id="back">Zurück zum Anliegen</button></div>`);
  body.querySelector('#retry').onclick=retry;
  body.querySelector('#back').onclick=()=>go(1);
  const contact=body.querySelector('#contact-practice');if(contact)contact.onclick=()=>options.onContact();
@@ -282,8 +282,8 @@ function bookingProfile(profile,review=profile.complete===true){
  };
 }
 function success(result){
- title(0,result.demo?'Demo-Buchung abgeschlossen.':'Dein Termin steht.',result.demo?'Simulation – kein echter Termin wurde gebucht.':'Deine Buchung wurde gespeichert.');
- renderBody(`<div class="success-mark">${icon('check')}</div>${summary()}<p><strong>${embedded?'Privatpraxis Nord':esc(practice?.name||result.practice_name)}</strong><br>${esc(practice?.street||'')}<br>${esc([practice?.zip,practice?.city].filter(Boolean).join(' '))}</p><p class="small">Du findest deinen Termin in deinem Patientenkonto.</p><div id="booking-payment-method"></div>${embedded?'':'<a class="button full" href="/hno-praxis-nord-vorschau/hno/konto.html">Zu meinen Terminen</a>'}<div class="booking-action-bar"><button class="button full" id="done">Fertig</button></div>`);
+ title(0,result.demo?'Terminauswahl abgeschlossen.':'Dein Termin steht.',result.demo?'Hier findest du deine Termindaten.':'Deine Buchung wurde gespeichert.');
+ renderBody(`<div class="success-mark">${icon('check')}</div>${summary()}<p><strong>${embedded?'Privatpraxis Nord':esc(practice?.name||result.practice_name)}</strong><br>${esc(practice?.street||'')}<br>${esc([practice?.zip,practice?.city].filter(Boolean).join(' '))}</p>${result.demo?'':'<p class="small">Du findest deinen Termin in deinem Patientenkonto.</p>'}<div id="booking-payment-method"></div>${embedded?'':'<a class="button full" href="/hno-praxis-nord-vorschau/hno/konto.html">Zu meinen Terminen</a>'}<div class="booking-action-bar"><button class="button full" id="done">Fertig</button></div>`);
  state.completed=true;
  body.querySelector('#done').onclick=()=>{state={};profileDraft={};loginEmail='';authPanel?.remove();authPanel=null;dialog.close();};
  if(practice?.slug==='hno-praxis-nord-tgq6sni')mountPaymentMethod(body.querySelector('#booking-payment-method'));

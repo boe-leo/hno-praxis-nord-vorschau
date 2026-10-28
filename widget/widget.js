@@ -131,7 +131,7 @@ function setInquiryOpen(open, focus = false) {
   inquiry.hidden = !open;
   contactToggle?.setAttribute('aria-expanded', String(open));
   root.classList.toggle('contact-view',open);
-  if (open) { resizeChatInput(); contactStatus.hidden=false; inquiry.tabIndex=-1;inquiry.focus({preventScroll:true}); }
+  if (open) { resizeChatInput(); contactStatus.hidden=true; inquiry.tabIndex=-1;inquiry.focus({preventScroll:true}); }
   else { closeChatResults(); if (focus) (contactToggle || (choicesOpen ? document.querySelector('#widget-private-toggle') : entryBook)).focus({preventScroll:true}); }
 }
 function setOpen(open) { setInquiryOpen(open); }
@@ -226,9 +226,9 @@ document.addEventListener('click', event => {
 // Presentation-only channels: never load an SDK or launch another application.
 const contactButtons=[...panel.querySelectorAll('[data-superchat-channel]')];
 const contactStatus=document.querySelector('#widget-contact-status');
-contactStatus.textContent='Demo – diese Kontaktkanäle versenden keine Nachrichten.';
-contactStatus.hidden=false;
-contactButtons.forEach(button=>{button.disabled=false;button.setAttribute('aria-describedby','widget-contact-status');button.addEventListener('click',()=>{contactStatus.textContent=button.textContent.trim()+' · Demo: Es wurde keine Nachricht versendet.';});});
+contactStatus.textContent='';
+contactStatus.hidden=true;
+contactButtons.forEach(button=>{button.disabled=false;button.setAttribute('aria-describedby','widget-contact-status');button.addEventListener('click',()=>{contactStatus.hidden=false;contactStatus.textContent=button.textContent.trim()+' ist derzeit nicht verfügbar. Bitte nutze die Kontaktdaten der Praxis.';});});
 
 const chatForm = document.querySelector('#widget-chat-form');
 const chatInput = document.querySelector('#widget-chat-input');

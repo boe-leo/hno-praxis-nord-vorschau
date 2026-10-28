@@ -7,7 +7,7 @@
     {id:'054b56bb-8592-4696-8e83-b283a585b135',name:'Dr. med. Alexander Loch'},
     {id:'2a49d7a3-9669-41f1-ba04-ca1b72d3cf7c',name:'Dr. Douty Keita'}
   ];
-  const profile = {first_name:'Demo',last_name:'Person',gender:'unknown',birthdate:'1990-01-01',email:'demo@example.test',phone:'+4915100000000',complete:true};
+  const profile = {first_name:'',last_name:'',gender:'unknown',birthdate:'',email:'',phone:'',complete:false};
   let authenticated = false;
   let challenge = '';
   const bookings = new Map();
@@ -28,7 +28,7 @@
     const url = new URL(input instanceof Request ? input.url : String(input), location.href);
     if (url.origin !== location.origin || !url.pathname.startsWith('/hno-praxis-nord-vorschau/hno/api/')) {
       if (url.origin === location.origin && url.pathname.startsWith('/hno-praxis-nord-vorschau/termine/api/')) {
-        return reply({error:'Nur das private Buchungsfenster ist Teil dieser Demo.'}, 503);
+        return reply({error:'Bitte nutze den Praxiskalender für die allgemeine Sprechstunde.'}, 503);
       }
       return nativeFetch(input, init);
     }
@@ -44,19 +44,19 @@
     if (path === '/practices') return reply({practices:[{slug:practice,name:'HNO Privat Praxis (Berlin Nord)',street:'Artemisstraße 9',zip:'13469',city:'Berlin',coordinates:{lat:52.605,lon:13.321}}]});
     if (path === '/doctors') return reply({doctors});
     if (path === '/slots') return reply({days:slots()});
-    if (path === '/login') { authenticated = true; return reply({authenticated:true,role:'patient'}); }
+    if (path === '/login') { profile.email = body.username || ''; authenticated = true; return reply({authenticated:true,role:'patient'}); }
     if (path === '/registration/sms/start') {
       challenge = crypto.randomUUID();
       return reply({challenge_id:challenge,expires_at:Date.now()/1000+300,resend_at:Date.now()/1000+60});
     }
     if (path === '/registration/patient') {
-      if (body.code !== '123456' || body.challenge_id !== challenge) return reply({error:'Demo-Code: 123456'},400);
+      if (body.code !== '123456' || body.challenge_id !== challenge) return reply({error:'Bitte gib den Bestätigungscode 123456 ein.'},400);
       authenticated = true;
       return reply({authenticated:true,role:'patient'});
     }
     if (path === '/account/password/request') return reply({ok:true});
     if (['/me','/patient/profile','/patient/book'].includes(path) && !authenticated) return reply({error:'Bitte melde dich an.'},401);
-    if (path === '/me') return reply({authenticated:true,role:'patient',username:'demo@example.test'});
+    if (path === '/me') return reply({authenticated:true,role:'patient',username:profile.email});
     if (path === '/patient/profile') return reply(method === 'POST' ? {ok:true} : profile);
     if (path === '/patient/book') {
       if (!body.request_id) return reply({error:'request_id fehlt'},400);
@@ -64,6 +64,6 @@
       return reply(bookings.get(body.request_id));
     }
     if (path === '/site-stats/event') return reply({ok:true});
-    return reply({error:'Dieser Endpunkt gehört nicht zur Demo.'},404);
+    return reply({error:'Diese Funktion ist derzeit nicht verfügbar.'},404);
   };
 })();
